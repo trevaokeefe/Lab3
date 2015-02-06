@@ -58,7 +58,12 @@ namespace Project1 {
 
 
 	private:
-		/// <summary>
+		//array::game <cell ^, 2 > ^ tictactoe_grid;
+	private: System::Windows::Forms::PictureBox^  pictureBox4;
+	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+			 /// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
@@ -71,6 +76,10 @@ namespace Project1 {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->newButton = (gcnew System::Windows::Forms::Button());
 			this->buttonUpLeft = (gcnew System::Windows::Forms::Button());
 			this->buttonUpMid = (gcnew System::Windows::Forms::Button());
@@ -81,15 +90,64 @@ namespace Project1 {
 			this->buttonBotLeft = (gcnew System::Windows::Forms::Button());
 			this->buttonBotMid = (gcnew System::Windows::Forms::Button());
 			this->buttonBotRight = (gcnew System::Windows::Forms::Button());
+			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::White;
+			this->panel1->Controls->Add(this->pictureBox4);
+			this->panel1->Controls->Add(this->pictureBox3);
+			this->panel1->Controls->Add(this->pictureBox2);
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Location = System::Drawing::Point(12, 12);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(460, 300);
 			this->panel1->TabIndex = 3;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->BackColor = System::Drawing::Color::Black;
+			this->pictureBox4->Location = System::Drawing::Point(3, 196);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(454, 13);
+			this->pictureBox4->TabIndex = 3;
+			this->pictureBox4->TabStop = false;
+			this->pictureBox4->Visible = false;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->BackColor = System::Drawing::Color::Black;
+			this->pictureBox3->Location = System::Drawing::Point(3, 86);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(454, 13);
+			this->pictureBox3->TabIndex = 2;
+			this->pictureBox3->TabStop = false;
+			this->pictureBox3->Visible = false;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::Black;
+			this->pictureBox2->Location = System::Drawing::Point(310, 3);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(15, 294);
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Visible = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Black;
+			this->pictureBox1->Location = System::Drawing::Point(138, 3);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(15, 294);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Visible = false;
 			// 
 			// newButton
 			// 
@@ -99,6 +157,7 @@ namespace Project1 {
 			this->newButton->TabIndex = 4;
 			this->newButton->Text = L"NEW GAME";
 			this->newButton->UseVisualStyleBackColor = true;
+			this->newButton->Click += gcnew System::EventHandler(this, &MyForm::newButton_Click);
 			// 
 			// buttonUpLeft
 			// 
@@ -200,11 +259,25 @@ namespace Project1 {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+		Graphics^ g;
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+				 //tictactoe_grid = gcnew <array> (3, 3);
+				 //g = panel1->CreateGraphics();
 	}
-	};
+	private: System::Void newButton_Click(System::Object^  sender, System::EventArgs^  e) {
+				 pictureBox1->Visible = true;
+				 pictureBox2->Visible = true;
+				 pictureBox3->Visible = true;
+				 pictureBox4->Visible = true;
+	}
+};
 }
