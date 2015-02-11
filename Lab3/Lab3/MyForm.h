@@ -1,5 +1,5 @@
 #pragma once
-
+#include "game.h";
 namespace Project1 {
 
 	using namespace System;
@@ -58,6 +58,9 @@ namespace Project1 {
 
 
 	private:
+		Graphics^ g;
+		Bitmap^ bmpX = gcnew Bitmap("Graphics/X's.bmp");
+		Bitmap^ bmpO = gcnew Bitmap("Graphics/O's.bmp");
 		//array::game <cell ^, 2 > ^ tictactoe_grid;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
@@ -165,8 +168,9 @@ namespace Project1 {
 			this->buttonUpLeft->Name = L"buttonUpLeft";
 			this->buttonUpLeft->Size = System::Drawing::Size(75, 23);
 			this->buttonUpLeft->TabIndex = 5;
-			this->buttonUpLeft->Text = L"button2";
+			this->buttonUpLeft->Text = L"Top Left";
 			this->buttonUpLeft->UseVisualStyleBackColor = true;
+			this->buttonUpLeft->Click += gcnew System::EventHandler(this, &MyForm::buttonUpLeft_Click);
 			// 
 			// buttonUpMid
 			// 
@@ -174,7 +178,7 @@ namespace Project1 {
 			this->buttonUpMid->Name = L"buttonUpMid";
 			this->buttonUpMid->Size = System::Drawing::Size(75, 23);
 			this->buttonUpMid->TabIndex = 6;
-			this->buttonUpMid->Text = L"button3";
+			this->buttonUpMid->Text = L"Top Mid";
 			this->buttonUpMid->UseVisualStyleBackColor = true;
 			// 
 			// buttonUpRight
@@ -183,7 +187,7 @@ namespace Project1 {
 			this->buttonUpRight->Name = L"buttonUpRight";
 			this->buttonUpRight->Size = System::Drawing::Size(75, 23);
 			this->buttonUpRight->TabIndex = 7;
-			this->buttonUpRight->Text = L"button4";
+			this->buttonUpRight->Text = L"Top Right";
 			this->buttonUpRight->UseVisualStyleBackColor = true;
 			// 
 			// buttonMidLeft
@@ -192,7 +196,7 @@ namespace Project1 {
 			this->buttonMidLeft->Name = L"buttonMidLeft";
 			this->buttonMidLeft->Size = System::Drawing::Size(75, 23);
 			this->buttonMidLeft->TabIndex = 8;
-			this->buttonMidLeft->Text = L"button5";
+			this->buttonMidLeft->Text = L"Mid Left";
 			this->buttonMidLeft->UseVisualStyleBackColor = true;
 			// 
 			// buttonMidMid
@@ -201,7 +205,7 @@ namespace Project1 {
 			this->buttonMidMid->Name = L"buttonMidMid";
 			this->buttonMidMid->Size = System::Drawing::Size(75, 23);
 			this->buttonMidMid->TabIndex = 9;
-			this->buttonMidMid->Text = L"button6";
+			this->buttonMidMid->Text = L"Mid Middle";
 			this->buttonMidMid->UseVisualStyleBackColor = true;
 			// 
 			// buttonMidRight
@@ -210,7 +214,7 @@ namespace Project1 {
 			this->buttonMidRight->Name = L"buttonMidRight";
 			this->buttonMidRight->Size = System::Drawing::Size(75, 23);
 			this->buttonMidRight->TabIndex = 10;
-			this->buttonMidRight->Text = L"button7";
+			this->buttonMidRight->Text = L"Mid Right";
 			this->buttonMidRight->UseVisualStyleBackColor = true;
 			// 
 			// buttonBotLeft
@@ -219,7 +223,7 @@ namespace Project1 {
 			this->buttonBotLeft->Name = L"buttonBotLeft";
 			this->buttonBotLeft->Size = System::Drawing::Size(75, 23);
 			this->buttonBotLeft->TabIndex = 11;
-			this->buttonBotLeft->Text = L"button8";
+			this->buttonBotLeft->Text = L"Bot Left";
 			this->buttonBotLeft->UseVisualStyleBackColor = true;
 			// 
 			// buttonBotMid
@@ -228,16 +232,18 @@ namespace Project1 {
 			this->buttonBotMid->Name = L"buttonBotMid";
 			this->buttonBotMid->Size = System::Drawing::Size(75, 23);
 			this->buttonBotMid->TabIndex = 12;
-			this->buttonBotMid->Text = L"button9";
+			this->buttonBotMid->Text = L"Bot Mid";
 			this->buttonBotMid->UseVisualStyleBackColor = true;
 			// 
 			// buttonBotRight
 			// 
+			this->buttonBotRight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->buttonBotRight->Location = System::Drawing::Point(191, 418);
 			this->buttonBotRight->Name = L"buttonBotRight";
 			this->buttonBotRight->Size = System::Drawing::Size(75, 23);
 			this->buttonBotRight->TabIndex = 13;
-			this->buttonBotRight->Text = L"button10";
+			this->buttonBotRight->Text = L"Bot Right";
 			this->buttonBotRight->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
@@ -268,16 +274,20 @@ namespace Project1 {
 
 		}
 #pragma endregion
-		Graphics^ g;
+		game tictac;
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-				 //tictactoe_grid = gcnew <array> (3, 3);
-				 //g = panel1->CreateGraphics();
+				 g = panel1->CreateGraphics();
 	}
 	private: System::Void newButton_Click(System::Object^  sender, System::EventArgs^  e) {
 				 pictureBox1->Visible = true;
 				 pictureBox2->Visible = true;
 				 pictureBox3->Visible = true;
 				 pictureBox4->Visible = true;
+				 panel1->Refresh();
 	}
+private: System::Void buttonUpLeft_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, tictac.get_x(), tictac.get_y());
+			 g->DrawImage(bmpO, tictac.get_x(), tictac.get_y());
+}
 };
 }
