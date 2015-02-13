@@ -1,16 +1,11 @@
-#include "game.h"
+/*#include "game.h"
 
-int game::get_x()
+int game::player_x()
 {
 	return x;
 }
 
-int game::get_y()
-{
-	return y;
-}
-
-void game::get_player(int new_x)
+void game::get_player(int new_player)
 {
 	x = new_x;
-}
+}*/

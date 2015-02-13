@@ -1,13 +1,12 @@
-#pragma once
+/*#pragma once
 
 ref class game
 {
 public:
 	void get_player(int new_player);
 
-	int get_x();
-	int get_y();
+	int player_x();
 private:
+	int x = 0;
 
-
-};
+};*/

@@ -59,8 +59,8 @@ namespace Project1 {
 
 	private:
 		Graphics^ g;
-		Bitmap^ bmpX = gcnew Bitmap("Graphics/X's.bmp");
-		Bitmap^ bmpO = gcnew Bitmap("Graphics/O's.bmp");
+		Bitmap^ bmpX = gcnew Bitmap("Graphics/X.bmp");
+		Bitmap^ bmpO = gcnew Bitmap("Graphics/O.bmp");
 		//array::game <cell ^, 2 > ^ tictactoe_grid;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
@@ -180,6 +180,7 @@ namespace Project1 {
 			this->buttonUpMid->TabIndex = 6;
 			this->buttonUpMid->Text = L"Top Mid";
 			this->buttonUpMid->UseVisualStyleBackColor = true;
+			this->buttonUpMid->Click += gcnew System::EventHandler(this, &MyForm::buttonUpMid_Click);
 			// 
 			// buttonUpRight
 			// 
@@ -189,6 +190,7 @@ namespace Project1 {
 			this->buttonUpRight->TabIndex = 7;
 			this->buttonUpRight->Text = L"Top Right";
 			this->buttonUpRight->UseVisualStyleBackColor = true;
+			this->buttonUpRight->Click += gcnew System::EventHandler(this, &MyForm::buttonUpRight_Click);
 			// 
 			// buttonMidLeft
 			// 
@@ -198,6 +200,7 @@ namespace Project1 {
 			this->buttonMidLeft->TabIndex = 8;
 			this->buttonMidLeft->Text = L"Mid Left";
 			this->buttonMidLeft->UseVisualStyleBackColor = true;
+			this->buttonMidLeft->Click += gcnew System::EventHandler(this, &MyForm::buttonMidLeft_Click);
 			// 
 			// buttonMidMid
 			// 
@@ -207,6 +210,7 @@ namespace Project1 {
 			this->buttonMidMid->TabIndex = 9;
 			this->buttonMidMid->Text = L"Mid Middle";
 			this->buttonMidMid->UseVisualStyleBackColor = true;
+			this->buttonMidMid->Click += gcnew System::EventHandler(this, &MyForm::buttonMidMid_Click);
 			// 
 			// buttonMidRight
 			// 
@@ -216,6 +220,7 @@ namespace Project1 {
 			this->buttonMidRight->TabIndex = 10;
 			this->buttonMidRight->Text = L"Mid Right";
 			this->buttonMidRight->UseVisualStyleBackColor = true;
+			this->buttonMidRight->Click += gcnew System::EventHandler(this, &MyForm::buttonMidRight_Click);
 			// 
 			// buttonBotLeft
 			// 
@@ -225,6 +230,7 @@ namespace Project1 {
 			this->buttonBotLeft->TabIndex = 11;
 			this->buttonBotLeft->Text = L"Bot Left";
 			this->buttonBotLeft->UseVisualStyleBackColor = true;
+			this->buttonBotLeft->Click += gcnew System::EventHandler(this, &MyForm::buttonBotLeft_Click);
 			// 
 			// buttonBotMid
 			// 
@@ -234,6 +240,7 @@ namespace Project1 {
 			this->buttonBotMid->TabIndex = 12;
 			this->buttonBotMid->Text = L"Bot Mid";
 			this->buttonBotMid->UseVisualStyleBackColor = true;
+			this->buttonBotMid->Click += gcnew System::EventHandler(this, &MyForm::buttonBotMid_Click);
 			// 
 			// buttonBotRight
 			// 
@@ -245,6 +252,7 @@ namespace Project1 {
 			this->buttonBotRight->TabIndex = 13;
 			this->buttonBotRight->Text = L"Bot Right";
 			this->buttonBotRight->UseVisualStyleBackColor = true;
+			this->buttonBotRight->Click += gcnew System::EventHandler(this, &MyForm::buttonBotRight_Click);
 			// 
 			// MyForm
 			// 
@@ -274,7 +282,7 @@ namespace Project1 {
 
 		}
 #pragma endregion
-		game tictac;
+		//game tictac;
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 				 g = panel1->CreateGraphics();
 	}
@@ -286,8 +294,40 @@ namespace Project1 {
 				 panel1->Refresh();
 	}
 private: System::Void buttonUpLeft_Click(System::Object^  sender, System::EventArgs^  e) {
-			 g->DrawImage(bmpX, tictac.get_x(), tictac.get_y());
-			 g->DrawImage(bmpO, tictac.get_x(), tictac.get_y());
+			 g->DrawImage(bmpX, 0, 0);
+			 //g->DrawImage(bmpO,0, 0);
+}
+private: System::Void buttonUpMid_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 160, 0);
+			 //g->DrawImage(bmpO, 160, 0);
+}
+private: System::Void buttonUpRight_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 330, 0);
+			 //g->DrawImage(bmpO, 330, 0);
+}
+private: System::Void buttonMidLeft_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 0, 100);
+			 //g->DrawImage(bmpO, 0, 100);
+}
+private: System::Void buttonMidMid_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 160, 100);
+			 //g->DrawImage(bmpO, 160, 100);
+}
+private: System::Void buttonMidRight_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 330, 100);
+			 //g->DrawImage(bmpO, 330, 100);
+}
+private: System::Void buttonBotLeft_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 0, 210);
+			 //g->DrawImage(bmpO, 0, 200);
+}
+private: System::Void buttonBotMid_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 160, 210);
+			 //g->DrawImage(bmpO, 160, 200);
+}
+private: System::Void buttonBotRight_Click(System::Object^  sender, System::EventArgs^  e) {
+			 g->DrawImage(bmpX, 330, 210);
+			 //g->DrawImage(bmpO, 330, 200);
 }
 };
 }
