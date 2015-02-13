@@ -1,5 +1,5 @@
 #pragma once
-#include "game.h";
+#include "Cell.h"
 namespace Project1 {
 
 	using namespace System;
@@ -46,7 +46,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  buttonBotMid;
 	private: System::Windows::Forms::Button^  buttonBotRight;
 	protected:
-
+		array <Cell^, 2>^ grid;
 
 
 
@@ -282,7 +282,7 @@ namespace Project1 {
 
 		}
 #pragma endregion
-		//game tictac;
+		Cell tictac;
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 				 g = panel1->CreateGraphics();
 	}
