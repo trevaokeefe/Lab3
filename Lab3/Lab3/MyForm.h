@@ -285,6 +285,7 @@ namespace Project1 {
 		Cell tictac;
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 				 g = panel1->CreateGraphics();
+
 	}
 	private: System::Void newButton_Click(System::Object^  sender, System::EventArgs^  e) {
 				 pictureBox1->Visible = true;
